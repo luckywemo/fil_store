@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "hardhat run scripts/deploy.js --network calibrationnet"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.9.1",
     "@lighthouse-web3/sdk": "^0.3.7",
     "@radix-ui/react-accordion": "^1.2.2",
@@ -44,16 +48,17 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
-    "date-fns": "4.1.0",
+    "date-fns": "^3.6.0",
     "embla-carousel-react": "8.5.1",
-    "ethers": "^5.7.2",
+    "ethers": "^6.4.0",
+    "framer-motion": "^11.0.5",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
-    "next": "15.2.4",
+    "next": "14.1.0",
     "next-themes": "^0.4.4",
-    "react": "^19",
+    "react": "^18",
     "react-day-picker": "8.10.1",
-    "react-dom": "^19",
+    "react-dom": "^18",
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
@@ -61,17 +66,29 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.6",
-    "viem": "^2.26.3",
-    "wagmi": "^2.14.16",
+    "viem": "^2.7.9",
+    "wagmi": "^2.5.7",
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/hardhat": "^9.0.0",
     "@types/next": "^8.0.7",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chai": "^4.2.0",
+    "dotenv": "^16.5.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "hardhat": "^2.19.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
+    "typechain": "^8.3.0",
     "typescript": "^5"
   },
   "main": "index.js",
@@ -80,5 +97,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckywemo/fil_store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luckywemo/fil_store/issues"
+  },
+  "homepage": "https://github.com/luckywemo/fil_store#readme",
   "description": ""
 }

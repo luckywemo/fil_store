@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract FilStore is ERC721, Ownable {
-    using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+    using Strings for uint256;
+
+    uint256 private _tokenIds;
 
     struct Product {
         uint256 id;
@@ -26,7 +27,7 @@ contract FilStore is ERC721, Ownable {
     event ProductCreated(uint256 indexed productId, string name, uint256 price);
     event ProductPurchased(uint256 indexed productId, address buyer);
 
-    constructor() ERC721("FilStore", "FILSTORE") {}
+    constructor(address initialOwner) ERC721("FilStore", "FILSTORE") Ownable(initialOwner) {}
 
     function createProduct(
         string memory name,
@@ -36,8 +37,8 @@ contract FilStore is ERC721, Ownable {
         string memory metadataURI,
         bool isNFT
     ) public onlyOwner returns (uint256) {
-        _tokenIds.increment();
-        uint256 newProductId = _tokenIds.current();
+        _tokenIds++;
+        uint256 newProductId = _tokenIds;
 
         products[newProductId] = Product({
             id: newProductId,
